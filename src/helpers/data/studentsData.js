@@ -150,4 +150,25 @@ const students = [
 
 const getAllStudents = () => students;
 
-export default { getAllStudents };
+const livingStudents = () => (
+  students.filter((student) => student.isDead === false));
+
+const dearlyBeloved = () => (
+  students.filter((student) => student.isDead === true));
+
+const followTheLight = (studentId) => {
+  const foundStudent = students.findIndex((student) => student.id === studentId);
+  students[foundStudent].isDead = false;
+};
+
+const feedTheShark = (studentId) => {
+  students.forEach((response) => { // eslint wants this to be 'response'
+    if (response.id === studentId) {
+      response.isDead = true;
+    }
+  });
+};
+
+export default {
+  getAllStudents, dearlyBeloved, livingStudents, followTheLight, feedTheShark,
+};

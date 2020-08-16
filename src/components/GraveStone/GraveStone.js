@@ -1,6 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import studentShape from '../../helpers/propz/studentShape';
 
 class GraveStone extends React.Component {
+    static propTypes = {
+      student: studentShape.studentShape,
+      followTheLight: PropTypes.func,
+    }
+
   followTheLightEvent = (e) => {
     e.preventDefault();
     const { student, followTheLight } = this.props;

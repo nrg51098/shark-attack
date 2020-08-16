@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LiveStudent from '../LiveStudent/LiveStudent';
+import studentShape from '../../helpers/propz/studentShape';
 
 class SharkTank extends React.Component {
+  static propTypes = {
+    livingStudents: PropTypes.arrayOf(studentShape.studentShape),
+    feedTheShark: PropTypes.func,
+  }
+
   render() {
     const { livingStudents, feedTheShark } = this.props;
 
@@ -12,7 +19,7 @@ class SharkTank extends React.Component {
 
     return (
         <div>
-            <h> Student </h>
+            <h2> Student </h2>
                 <div className="card-columns">
                     {livingStudentCards}
                 </div>

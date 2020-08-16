@@ -1,12 +1,6 @@
 import React from 'react';
 
 class LiveStudent extends React.Component {
-  feedTheSharkEvent = (e) => {
-    e.preventDefault();
-    const { student, feedTheShark } = this.props;
-    feedTheShark(student.id);
-  }
-
   render() {
     const { student } = this.props;
 
@@ -18,7 +12,7 @@ class LiveStudent extends React.Component {
           <p className="card-text">This student is years old and are described as: {student.firstName}</p>
         </div>
         <div className="card-footer">
-         <button className="btn btn-danger col-12" onClick={this.feedTheSharkEvent}>FREE THE GOAT</button>
+         {/* <button className="btn btn-danger col-12" onClick={this.feedTheSharkEvent}>FREE THE GOAT</button> */}
         </div>
       </div>
     );

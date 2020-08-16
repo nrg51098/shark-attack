@@ -34,6 +34,15 @@ class App extends React.Component {
     this.refreshTankAndGraveYard();
   }
 
+  feedTheSharkEvent = (e) => {
+    e.preventDefault();
+    const randomLiveStudent = studentsData.getRandomLiveStudent();
+    if (randomLiveStudent) {
+      randomLiveStudent.isDead = true;
+    }
+    this.refreshTankAndGraveYard();
+  }
+
   render() {
     const { livingStudents, dearlyBeloved } = this.state;
 
@@ -41,8 +50,8 @@ class App extends React.Component {
       <div className="App">
         <div>
         <h2>INSIDE Shark Tank COMPONENT</h2>
-        <button className="btn btn-info">I am a button</button>
-        <SharkTank livingStudents = { livingStudents } feedTheShark={ this.feedTheShark } />
+        <button className="btn btn-info" onClick={this.feedTheSharkEvent}>Feed the Shark</button>
+        <SharkTank livingStudents = { livingStudents } />
         </div>
         <div>
         <h2>INSIDE GraveYard COMPONENT</h2>

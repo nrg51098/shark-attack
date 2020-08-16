@@ -150,6 +150,15 @@ const students = [
 
 const getAllStudents = () => students;
 
+const getRandomLiveStudent = () => {
+  const liveStudents = livingStudents();
+  const liveStudentsCount = liveStudents.length;
+  const randomNumber = getRandomInt(liveStudentsCount);
+  return liveStudents[randomNumber];
+};
+
+const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+
 const livingStudents = () => (
   students.filter((student) => student.isDead === false));
 
@@ -170,5 +179,5 @@ const feedTheShark = (studentId) => {
 };
 
 export default {
-  getAllStudents, dearlyBeloved, livingStudents, followTheLight, feedTheShark,
+  getAllStudents, dearlyBeloved, livingStudents, followTheLight, feedTheShark, getRandomLiveStudent,
 };

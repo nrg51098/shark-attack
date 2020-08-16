@@ -150,17 +150,4 @@ const students = [
 
 const getAllStudents = () => students;
 
-const killAStudent = (studentId) => {
-  students.forEach((response) => { // eslint wants this to be 'response'
-    if (response.id === studentId) {
-      response.isDead = true;
-    }
-  });
-};
-
-const reviveAStudent = (studentId) => {
-  const foundStudent = students.findIndex((student) => student.id === studentId);
-  students[foundStudent].isDead = false;
-};
-
-export default { getAllStudents, killAStudent, reviveAStudent };
+export default { getAllStudents };

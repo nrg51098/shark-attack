@@ -1,10 +1,16 @@
 import React from 'react';
 
-class LiveStudent extends React.Component {
-  render() {
-    const { student } = this.props;
+import studentShape from '../../helpers/propz/studentShape';
 
-    return (
+class LiveStudent extends React.Component {
+    static propTypes = {
+      student: studentShape.studentShape,
+    }
+
+    render() {
+      const { student } = this.props;
+
+      return (
       <div className="card bg-dark text-light border-0">
         <img className="card-img-top" src={student.imgUrl} alt="one specific goat" />
         <div className="card-img-overlay">
@@ -15,8 +21,8 @@ class LiveStudent extends React.Component {
          {/* <button className="btn btn-danger col-12" onClick={this.feedTheSharkEvent}>FREE THE GOAT</button> */}
         </div>
       </div>
-    );
-  }
+      );
+    }
 }
 
 export default LiveStudent;

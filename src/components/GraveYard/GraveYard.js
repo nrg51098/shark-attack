@@ -1,24 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import GraveStone from '../GraveStone/GraveStone';
+import studentShape from '../../helpers/propz/studentShape';
 
 class GraveYard extends React.Component {
-  render() {
-    const { dearlyBeloved, followTheLight } = this.props;
+    static propTypes = {
+      dearlyBeloved: PropTypes.arrayOf(studentShape.studentShape),
+      followTheLight: PropTypes.func,
+    }
 
-    const dearlyBelovedCards = dearlyBeloved.map((student) => (
+    render() {
+      const { dearlyBeloved, followTheLight } = this.props;
+
+      const dearlyBelovedCards = dearlyBeloved.map((student) => (
         <GraveStone key={ student.id} student = { student} followTheLight={ followTheLight } />
-    ));
+      ));
 
-    return (
+      return (
         <div>
-            <h> Student </h>
+            <h2> Student </h2>
                 <div className="card-columns">
                     {dearlyBelovedCards}
                 </div>
         </div>
-    );
-  }
+      );
+    }
 }
 
 export default GraveYard;
